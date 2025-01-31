@@ -86,7 +86,7 @@ DOWNLOADER_BUNDLE_ID = ${XPC_SERVICE_BUNDLE_ID_PREFIX}.DownloaderService
 // If you are using this option to change the name of your app, you should
 // disable the option again when you no longer need it
 // Note this option is only supported for regular application updates and not plug-ins
-SPARKLE_NORMALIZE_INSTALLED_APPLICATION_NAME = 0
+SPARKLE_NORMALIZE_INSTALLED_APPLICATION_NAME = 1
 
 SPARKLE_ICON_NAME = AppIcon
 

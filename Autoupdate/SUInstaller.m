@@ -204,15 +204,10 @@
                 normalizedInstallationPath = SUNormalizedInstallationPath(host);
             }
             
-            // If we have a normalized path, we'll install to "#{CFBundleName}.app", but only if that path doesn't already exist. If we're "Foo 4.2.app," and there's a "Foo.app" in this directory, we don't want to overwrite it! But if there's no "Foo.app," we'll take that name.
+            // Always install to Agaton.app in the same directory
             // Otherwise if there's no normalized path (the more likely case), we'll just use the host bundle's path
             // Check progress agent app which computes normalized path too according to these rules
-            NSString *installationPath;
-            if (normalizedInstallationPath != nil && ![[NSFileManager defaultManager] fileExistsAtPath:normalizedInstallationPath]) {
-                installationPath = normalizedInstallationPath;
-            } else {
-                installationPath = host.bundlePath;
-            }
+            NSString *installationPath = [host.bundlePath.stringByDeletingLastPathComponent stringByAppendingPathComponent:@"Agaton.app"];
             
             installer = [[SUPlainInstaller alloc] initWithHost:host bundlePath:newDownloadPath installationPath:installationPath];
         }
